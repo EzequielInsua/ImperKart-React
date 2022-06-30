@@ -1,0 +1,132 @@
+.card {
+border-radius: 20px;
+transition: all .3s;
+min-width: 280px;
+max-width: 350px;
+height: 450px;
+margin-bottom: 50px; 
+background-color: #161616;
+}
+.card:hover {
+    box-shadow: 0px 0px 40px 1px rgba(253, 0, 0, 0.616); }
+.card .card2 {
+    border-radius: 20px;
+    text-align: center;
+    min-width: 280px;
+    height: 450px;
+    backdrop-filter: blur(0.2rem);
+    background-color: rgba(255, 255, 255, 0.099);
+    border: 0.1rem solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1rem 1rem rgba(120, 62, 72, 0.2); }
+    .card .card2 .carousel {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%; }
+    .card .card2 .carousel::before {
+        border-radius: 20px;
+        content: '';
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        backdrop-filter: blur(5rem);
+        background-color: rgba(255, 255, 255, 0.065);
+        border: 0.1rem solid rgba(255, 255, 255, 0.7);
+        box-shadow: 0 1rem 1rem rgba(120, 62, 72, 0.2);
+        width: 100%;
+        height: 100%;
+        clip-path: circle(200px at 40% 7%);
+        transition: 0.5s ease-in-out; }
+    .card .card2 .carousel:hover::before {
+        clip-path: circle(600px at 80% -20%); }
+    .card .card2:hover {
+    border-radius: 20px; }
+    .card .card2 .d-block {
+    object-fit: scale-down;
+    height: 15rem; }
+    .card .card2 .carousel-item .cardDescription {
+    color: #161616; }
+    .card .card2 .carousel-item .cardDescription h2 {
+        font-weight: 600;
+        font-size: 1.3rem;
+        letter-spacing: 3px;
+        height: 30px;
+        text-transform: uppercase;
+        color: #ff002f;
+        margin: auto;
+        font-family: guitaluevo;
+        margin: 5px;
+        padding: 0; }
+    .card .card2 .carousel-item .cardDescription .price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        text-transform: uppercase;
+        font-family: roboto;
+        color: #fffbed;
+    }
+        .card .card2 .carousel-item .cardDescription .price h3 {
+        font-weight: 800;
+        font-size: 1.2rem;
+        margin: 5px; }
+        .card .card2 .carousel-item .cardDescription .price span {
+        font-size: 1rem;
+        margin: 5px;
+        color: #111;
+        background-color: #fffbed;
+        border-radius: 2px;
+        padding: 2px 10px; }
+    .card .card2 .carousel-item .cardDescription .color {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: roboto;
+        padding: 5px; }
+        .card .card2 .carousel-item .cardDescription .color h3 {
+        font-weight: 800;
+        font-size: 1.2rem;
+        margin: 5px; }
+        .card .card2 .carousel-item .cardDescription .color span {
+        width: 20px;
+        height: 20px;
+        background: #fffbed;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer; }
+        .card .card2 .carousel-item .cardDescription .color .activo {
+        border: 0.3rem solid #eca500;
+        width: 30px;
+        height: 30px; }
+        .card .card2 .carousel-item .cardDescription .color .blanco {
+        background-color: white; }
+        .card .card2 .carousel-item .cardDescription .color .rojo {
+        background-color: red; }
+        .card .card2 .carousel-item .cardDescription .color .negro {
+        background-color: black; }
+        .card .card2 .carousel-item .cardDescription .color .azul {
+        background-color: blue; }
+        .card .card2 .carousel-item .cardDescription .color .amarillo {
+        background-color: yellow; }
+    .card .card2 .carousel-item .cardDescription a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff002f;
+        border-radius: 4px;
+        margin-top: 10px;
+        color: #fffbed;
+        text-decoration: none;
+        font-weight: 600; }
+        .card-text{
+            color: #fffbed;
+        }
+    .card .card2 .carousel-item .ver_mas a {
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    font-size: 1rem;
+    border: 0.05rem solid rgba(255, 255, 255, 0.1);
+    color: #ff002f;
+    margin: .3rem; }
+    .card .card2 .carousel-item .ver_mas a:hover {
+        background: #fffbed; }
