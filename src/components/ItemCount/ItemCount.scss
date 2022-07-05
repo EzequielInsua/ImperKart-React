@@ -1,0 +1,40 @@
+@import '../../sass/_variables.scss';
+
+.item-count{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+
+    .btn-outline-dark{
+        --bs-btn-focus-shadow-rgb: none;
+        --bs-btn-active-color: $TextColor;
+        --bs-btn-active-bg: $mainColor;
+        --bs-btn-active-border-color: #0882fc;
+        --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
+        &:hover{
+            color: $TextColor;
+            background-color: $mainColor;
+        }
+        &:active{
+            color: $TextColor;
+            background-color: $mainColor;
+        }
+        &:-moz-focusring{
+            color: $TextColor;
+            background-color: $mainColor;
+        }
+    }
+    .count{
+        width: 100px;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 600;
+        border: #000 1px solid;
+    }
+}

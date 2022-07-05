@@ -1,3 +1,4 @@
+import { LocalFireDepartment } from "@mui/icons-material";
 
 const products = [
     {
@@ -32,17 +33,27 @@ const products = [
         stock: 13,
         image: 'corbata/corbata_2014_azul.png'
     },
-]
+];
+const product = {
+    id: 1,
+    name: "Corbata",
+    abstract: "Corbata blanca 2020",
+    description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price: 3000,
+    stock: 10,
+    image: 'corbata/corbata_2020_blanca.png'
+};
 
 export const getData = new Promise ((resolve, reject) =>{
-
-    let condition = true
-
+    let condition = true;
     setTimeout(()=>{
-    if(condition){
-        resolve(products)
-    }else{
-        reject('error en la peticion')
-    }
-    },3000)
-})
+        condition ? resolve(products) : reject('Error en la petición');
+    },1000)
+});
+
+export const getProduct = new Promise ((resolve, reject) =>{
+    let condition = true
+    setTimeout(()=>{
+        condition ? resolve(product) : reject('Error en la petición');
+    },2000)
+}); 

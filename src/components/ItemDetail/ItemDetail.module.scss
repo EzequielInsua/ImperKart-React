@@ -1,0 +1,55 @@
+@import '../../sass/_variables.scss';
+
+.card{
+    width: 100%;
+    background-color: $TextColor;
+    border-radius: 20px;
+    border: $border;
+}
+.cardTitle{
+    width: 100%;
+    text-transform: uppercase;
+    font-family: roboto;
+    font-size: 1.5rem;
+    margin: 20px;
+    border-bottom: $border;
+}
+.cardContainer{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    width: 100%;
+    border: .05rem solid #fffbed62;
+}
+.imageContainer{
+    width: 50%;
+    text-align: center;
+}
+.image{
+    max-width: 400px;
+    
+}
+.detailContainer{
+    width: 50%;
+    height: 100%;
+    border-left: $border;
+    padding: 2%;
+}
+.buy {
+    line-height: 2rem;
+    font-size: 1rem;
+    color: $mainColor;
+    margin: .3rem;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff002f;
+    border-radius: 4px;
+    margin-top: 10px;
+    color: #fffbed;
+    text-decoration: none;
+    font-weight: 600; 
+    &:hover {
+        background: $secundaryColor; 
+        color: $mainColor;
+    }
+}

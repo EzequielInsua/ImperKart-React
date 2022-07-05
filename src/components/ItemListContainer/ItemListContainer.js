@@ -1,8 +1,7 @@
-import "./ItemListContainer.css";
-
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { getData } from '../../mocks/fakeProducts'
+import "./ItemListContainer.scss";
 
 const ItemListContainer = ({greeting}) => {
     const [productList, setProductList]=useState([])

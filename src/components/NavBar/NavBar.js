@@ -1,5 +1,5 @@
 import logo from "../../assets/logo/k_logo_vertical_b_fondo_transparente.png";
-import "./NavBar.css";
+import "./NavBar.scss";
 import CardWidget from "../CardWidget/CardWidget";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
 const menuItems = [
@@ -27,7 +27,7 @@ const NavBar = () =>{
         <nav class="navbar navbar-expand-md navbar-dark">
             <div class="container-fluid">
                 <a class="navbarLogo navbar-brand" href="#">
-                    <img src={logo} class="navbarLogo-img" alt="Logo ImperKart" />
+                    <img src={logo} class="navbarLogo_img" alt="Logo ImperKart" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

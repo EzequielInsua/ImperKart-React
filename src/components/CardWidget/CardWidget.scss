@@ -1,0 +1,13 @@
+@import '../../sass/_variables.scss';
+#card{
+    margin-right: 7%;
+    background-color: $TextColor;
+    box-shadow: $box-shadow;
+    border-radius: 20%;
+    border: none;
+    &:hover{
+        background-color: $mainColor;
+        box-shadow: $box-shadowHover;
+    }
+
+}

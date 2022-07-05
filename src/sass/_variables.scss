@@ -1,0 +1,37 @@
+// ----------------------------------
+// --- Creamos todas las Variable ---
+// ----------------------------------
+
+$mainColor: rgb(255, 0, 47);
+$secundaryColor: rgb(77,77,77);
+$TerliaryColor: rgb(35,31,32);
+$TextColor: #fffbed;
+$bg: rgb(22, 22, 22);
+$bgHeader: rgb(24, 24, 24,0.95);
+$bgSession: rgb(22, 22, 22);
+$border:.05rem solid #4e4e4ebb;
+$box-shadow:0 0 100px 0 rgba(255, 255, 255, 0.103);
+$box-shadowHover:0 0 20px 0 rgba(255, 0, 47, 0.9);
+
+@font-face {
+    font-family: rocket;
+    src: url('../font/redrocketital.ttf');
+}
+@font-face {
+    font-family: rocketout;
+    src: url('../font/redrocket3dital.ttf');
+}
+@font-face {
+    font-family: guitaluevo;
+    src: url('../font/Gitaluevo.ttf');
+}
+@font-face {
+    font-family: monserrat_bold;
+    src: url('../font/Montserrat-Bold.ttf');
+}
+
+$font:(
+    fontTitle:('guitaluevo','Roboto', sans-serif),
+    fontGeneral:('Roboto', sans-serif),
+    fontPromo:('monserrat_bold','Roboto')
+);

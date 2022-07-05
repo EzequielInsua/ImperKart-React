@@ -1,4 +1,4 @@
-import './Item.css'
+import './Item.scss';
 const productsImage = require.context('../../assets', true);
 
 const Item = ({product}) => {
@@ -20,7 +20,7 @@ const Item = ({product}) => {
                                         <span>${price}</span>
                                     </div>
                                     <p className="card-text">{description}</p>
-                                    <a id="${id}" name="comprar" class="ver_mas" href="#">Ver Mas</a>
+                                    <a id="${id}" name="comprar" class="ver_mas" href="#">Ver Detalle</a>
                                 </div>
                             </div>
                         </div>
