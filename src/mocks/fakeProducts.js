@@ -4,7 +4,8 @@ const products = [
     {
         id: 1,
         name: "Corbata",
-        description: "Corbata blanca 2020",
+        abstract: "Corbata blanca 2020",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
         price: 3000,
         stock: 10,
         image: 'corbata/corbata_2020_blanca.png'
@@ -12,7 +13,8 @@ const products = [
     {
         id: 2,
         name: "Corbata",
-        description: "Corbata roja 2020",
+        abstract: "Corbata roja 2020",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
         price: 3000,
         stock: 9,
         image: 'corbata/corbata_2020_roja.png'
@@ -20,7 +22,8 @@ const products = [
     {
         id: 3,
         name: "Corbata",
-        description: "Corbata negra 2014",
+        abstract: "Corbata negra 2014",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
         price: 3000,
         stock: 13,
         image: 'corbata/corbata_2014_negro.png'
@@ -28,21 +31,13 @@ const products = [
     {
         id: 4,
         name: "Corbata",
-        description: "Corbata azul 2014",
+        abstract: "Corbata azul 2014",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
         price: 3000,
         stock: 13,
         image: 'corbata/corbata_2014_azul.png'
     },
 ];
-const product = {
-    id: 1,
-    name: "Corbata",
-    abstract: "Corbata blanca 2020",
-    description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    price: 3000,
-    stock: 10,
-    image: 'corbata/corbata_2020_blanca.png'
-};
 
 export const getData = new Promise ((resolve, reject) =>{
     let condition = true;
@@ -51,9 +46,11 @@ export const getData = new Promise ((resolve, reject) =>{
     },1000)
 });
 
-export const getProduct = new Promise ((resolve, reject) =>{
+
+export const getProduct = (id) => new Promise ((resolve, reject) =>{
     let condition = true
+    const productFound = products.find(product => product.id === Number(id));
     setTimeout(()=>{
-        condition ? resolve(product) : reject('Error en la petición');
+        condition ? resolve(productFound) : reject('Error en la petición');
     },2000)
 }); 

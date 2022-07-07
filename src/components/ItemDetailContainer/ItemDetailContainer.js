@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { getProduct } from "../../mocks/fakeProducts"
 
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true); 
+
+    const {id} = useParams();
+    console.log(id);
 
     const getProd = async () => {
+        
         try{
-            const respuesta = await getProduct
+            const respuesta = await getProduct(id);
             setProduct(respuesta)
         }catch(error){
             console.log(error)
@@ -19,8 +24,8 @@ const ItemDetailContainer = () => {
     }
 
     useEffect(() => {
-        getProd();
-    },[]);
+        getProd(id);
+    },[id]);
 
     return (
         <div>
@@ -28,7 +33,5 @@ const ItemDetailContainer = () => {
         </div>
     )
 }
-
-
 
     export default ItemDetailContainer;

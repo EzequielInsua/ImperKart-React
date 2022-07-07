@@ -1,9 +1,10 @@
 import './Item.scss';
+import {Link} from 'react-router-dom';
 const productsImage = require.context('../../assets', true);
 
 const Item = ({product}) => {
 
-    const {image, name, description, price}= product
+    const {image, name, abstract, price, id}= product
 
     return (
         <div class="col">
@@ -19,8 +20,8 @@ const Item = ({product}) => {
                                         <h3>Precio:</h3>
                                         <span>${price}</span>
                                     </div>
-                                    <p className="card-text">{description}</p>
-                                    <a id="${id}" name="comprar" class="ver_mas" href="#">Ver Detalle</a>
+                                    <p className="card-text">{abstract}</p>
+                                    <Link to={`/detalle/${id}`} name="comprar" class="ver_mas" href="#">Ver Detalle</Link>
                                 </div>
                             </div>
                         </div>
