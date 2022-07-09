@@ -123,13 +123,14 @@ background-color: #161616;
         .card-text{
             color: #fffbed;
         }
-    .card .card2 .carousel-item .ver_mas a {
-    height: 2rem;
-    width: 2rem;
+    .card .card2 .carousel-item .ver_mas {
     line-height: 2rem;
     font-size: 1rem;
     border: 0.05rem solid rgba(255, 255, 255, 0.1);
-    color: #ff002f;
-    margin: .3rem; }
-    .card .card2 .carousel-item .ver_mas a:hover {
-        background: #fffbed; }
+    color: $mainColor;
+    margin: .3rem; 
+    &:hover {
+        background: $TextColor; 
+        color: $mainColor;
+    }
+}

@@ -1,5 +1,3 @@
-import { LocalFireDepartment } from "@mui/icons-material";
-
 const products = [
     {
         id: 1,
@@ -29,7 +27,6 @@ const products = [
         category: "Plasticos",
         price: 3000,
         stock: 13,
-
         image: 'corbata/corbata_2014_negro.png'
     },
     {
@@ -95,17 +92,24 @@ const products = [
 ];
 
 export const getData = new Promise ((resolve, reject) =>{
+
     let condition = true;
+
     setTimeout(()=>{
         condition ? resolve(products) : reject('Error en la petición');
-    },1000)
+    },3000)
+
 });
 
 
 export const getProduct = (id) => new Promise ((resolve, reject) =>{
+
     let condition = true
+
     const productFound = products.find(product => product.id === Number(id));
+
     setTimeout(()=>{
         condition ? resolve(productFound) : reject('Error en la petición');
-    },2000)
+    },1000)
+
 }); 

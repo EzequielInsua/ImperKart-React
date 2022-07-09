@@ -1,7 +1,6 @@
-import logo from '../../assets/logo/k_logo_vertical_b_fondo_transparente.png';
 import './NavBar.scss';
+import logo from '../../assets/logo/k_logo_vertical_b_fondo_transparente.png';
 import CardWidget from '../CardWidget/CardWidget';
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import {Link} from 'react-router-dom';
 const menuItems = [
     {
@@ -31,9 +30,9 @@ const NavBar = () =>{
         <>
         <nav class='navbar navbar-expand-md navbar-dark'>
             <div class='container-fluid'>
-                <a class='navbarLogo navbar-brand' href='#'>
+                <Link to = '/' key = '1' class='navbarLogo navbar-brand'>
                     <img src={logo} class='navbarLogo_img' alt='Logo ImperKart' />
-                </a>
+                </Link>
                 <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
                     <span class='navbar-toggler-icon'></span>
                 </button>
