@@ -1,27 +1,32 @@
+import "./ItemListContainer.scss";
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { getData } from '../../mocks/fakeProducts'
-import "./ItemListContainer.scss";
+import { useParams } from "react-router-dom";
+
 
 const ItemListContainer = ({greeting}) => {
-    const [productList, setProductList]=useState([])
-    const [loading, setLoading]=useState(true)
+    const [productList, setProductList] = useState([]);
+    const [loading, setLoading]=useState(true);
 
-  //tratar la promesa con try cathc finally 
+    const { categoryId } = useParams();
+    
     const getProducts = async () => {
         try{
-        const respuesta = await getData
-        setProductList(respuesta)
-        }catch(error){
-        console.log(error)
-        }finally{
-        setLoading(false)
+        const respuesta = await getData(categoryId);
+            setProductList(respuesta)
+        }
+        catch(error){
+            console.log(error)
+        }
+        finally{
+            setLoading(false)
         }
     }
 
     useEffect(()=>{
-        getProducts()
-    },[])
+        getProducts(categoryId)
+    },[categoryId])
 
     return (
     <div>

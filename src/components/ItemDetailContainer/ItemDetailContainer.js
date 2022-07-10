@@ -9,16 +9,17 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true); 
 
     const {id} = useParams();
-    console.log(id);
 
     const getProd = async () => {
         
         try{
             const respuesta = await getProduct(id);
-            setProduct(respuesta)
-        }catch(error){
+                setProduct(respuesta)
+        }
+        catch(error){
             console.log(error)
-        }finally{
+        }
+        finally{
             setLoading(false)
         }
     }

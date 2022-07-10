@@ -6,22 +6,22 @@ const menuItems = [
     {
         id: 1,
         path: '/',
-        name: 'Inicio'
+        name: 'Destacados'
     },
     {
         id: 2,
-        path: 'category/productos',
-        name: 'Productos'
+        path: 'category/plasticos',
+        name: 'Plasticos'
     },
     {
         id: 3,
-        path: 'category/nosotros',
-        name: 'Nosotros'
+        path: 'category/llantas',
+        name: 'Llantas'
     },
     {
         id: 4,
-        path: 'category/contacto',
-        name: 'Contacto'
+        path: 'category/chasis',
+        name: 'Chasis'
     }
 ];
 
