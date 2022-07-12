@@ -1,18 +1,19 @@
 @import '../../sass/_variables.scss';
 
 .card{
-    width: 100%;
+    width: 90%;
     background-color: $TextColor;
     border-radius: 20px;
     border: $border;
+    margin: 5%;
 }
 .cardTitle{
     width: 100%;
     text-transform: uppercase;
     font-family: roboto;
     font-size: 1.5rem;
-    margin: 20px;
     border-bottom: $border;
+    padding: 20px;
 }
 .cardContainer{
     display: flex;
@@ -36,6 +37,8 @@
     padding: 2%;
 }
 .buy {
+    position: absolute;
+    left: 0;
     line-height: 2rem;
     font-size: 1rem;
     color: $mainColor;
