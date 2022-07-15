@@ -1,19 +1,21 @@
 import CheckOut from '../CheckOut/CheckOut';
 import styles from  './ItemDetail.module.scss';
 import ItemCount from "../ItemCount/ItemCount";
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { CartContext } from '../../Context/CartContext';
 
 const ProductsImage = require.context('../../assets', true);
 
 const ItemDetail = ({product}) => {
 
-    const [Check, setCheck] = useState(false);
-    
     const {image, name,abstract, description, price}= product
+    
+    const [quantity, setQuantity] = useState(0);
+    const {addToCart} = useContext(CartContext);
 
     const onAdd = (count) => {
-        console.log(count);
-        setCheck(true);
+        setQuantity(count);
+        addToCart(product, count);
     }
 
     return (
@@ -32,7 +34,7 @@ const ItemDetail = ({product}) => {
                     <div class="price">
                         <h5>Precio: <span>${price}</span> </h5>
                     </div>
-                    {Check ? <CheckOut/> : <ItemCount maxStock={13} minStock={1} onAdd={onAdd}/>}
+                    {quantity != 0 ? <CheckOut/> : <ItemCount maxStock={13} minStock={1} onAdd={onAdd}/>}
                 </div>
             </div>
         </div>
