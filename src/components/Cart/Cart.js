@@ -1,6 +1,9 @@
+import './Cart.scss'
 import React from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
+import {Link} from "react-router-dom"
+import swal from 'sweetalert'
 
 const productsImage = require.context('../../assets', true);
 
@@ -22,13 +25,14 @@ const Cart = () => {
             <ul>
                 {cart.map(item => (
                     <li key={item.id}>
+                        
                         <div className="cart-item">
-                            <img src={productsImage(`./${item.image}`)} width="70px"  alt={item.name} />
+                            <h4>{item.abstract}</h4>
                             <div className="item-details">
-                                <h2>{item.abstract}</h2>
+                                <img src={productsImage(`./${item.image}`)} width="70px"  alt={item.name} />
                                 <p>Precio: ${item.price}</p>
                                 <p>Cantidad: {item.quantity}</p>
-                                <buttom onClick={() => removeFromCart(item.id)}>Remover</buttom>
+                                <buttom class='buy' onClick={() => removeFromCart(item.id)}>Remover</buttom>
                             </div>
                         </div>
                     </li>
@@ -36,6 +40,10 @@ const Cart = () => {
             </ul>
             <div className="cart-total">
                 <p>Total: ${total()}</p>
+            </div>
+            <div class="item-count">
+                <Link to={'/'} name="buy" class='buy'>Seguir Comprando</Link>
+                <buttom name="buy" class='buy' onClick={() => swal(`¡Tu compra fue realizada correctamente!`)}>Finalizar Compra</buttom>
             </div>
         </div>
     )

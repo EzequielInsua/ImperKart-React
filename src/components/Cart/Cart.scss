@@ -1,0 +1,81 @@
+@import '../../sass/_variables.scss';
+
+.cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    font-family: guitaluevo;
+    color: $mainColor;
+}
+ul{
+    list-style-type: none;
+    width: 100%;
+}
+.cart-item{
+    font-family: monserrat_bold;
+    color: $TextColor;
+    box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.555);
+    h4{
+        padding: 5px;
+    }
+}
+
+.item-details{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.buy {
+    font-size: 1rem;
+    color: $mainColor;
+    margin: .3rem;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $mainColor;
+    border-radius: 4px;
+    margin-top: 10px;
+    color: #fffbed;
+    text-decoration: none;
+    font-weight: 600; 
+    &:hover {
+        background: $secundaryColor; 
+        color: $mainColor;
+    }
+}
+.item-count{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    border: $border;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+    font-family: monserrat_bold;
+}
+.cart-total{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    font-family: monserrat_bold;
+    color: $TextColor;
+    font-size: 25px;
+}
