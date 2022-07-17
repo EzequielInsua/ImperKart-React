@@ -1,3 +1,4 @@
+import React from 'react';
 import './Item.scss';
 import {Link} from 'react-router-dom';
 const productsImage = require.context('../../assets', true);

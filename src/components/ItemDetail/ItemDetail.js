@@ -34,7 +34,7 @@ const ItemDetail = ({product}) => {
                     <div class="price">
                         <h5>Precio: <span>${price}</span> </h5>
                     </div>
-                    {quantity != 0 ? <CheckOut/> : <ItemCount maxStock={13} minStock={1} onAdd={onAdd}/>}
+                    {quantity !== 0 ? <CheckOut/> : <ItemCount maxStock={13} minStock={1} onAdd={onAdd}/>}
                 </div>
             </div>
         </div>

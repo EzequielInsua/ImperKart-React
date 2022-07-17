@@ -1,13 +1,40 @@
 @import '../../sass/_variables.scss';
+
 #card{
-    margin-right: 7%;
+    background-color: transparent;
+    border-radius: 20%;
+    border: none;
+}
+#cartQuantity {
+    height: 30px;
+	width: 30px;
+	background: $mainColor;
+	font-size: 20px;
+	color: #ffffff;
+	line-height: 30px;
+	text-align: center;
+    align-items: center;
+	font-weight: 700;
+	border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    right: -15px;
+}
+
+.cw_display{
+    position: relative;
+    margin: 7%;
     background-color: $TextColor;
     box-shadow: $box-shadow;
     border-radius: 20%;
     border: none;
+    display: flex;
     &:hover{
         background-color: $mainColor;
         box-shadow: $box-shadowHover;
+        #cartQuantity{
+            background-color: $TextColor;
+            color: $mainColor;
+        }
     }
-
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import './NavBar.scss';
 import logo from '../../assets/logo/k_logo_vertical_b_fondo_transparente.png';
 import CardWidget from '../CardWidget/CardWidget';

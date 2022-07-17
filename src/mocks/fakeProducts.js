@@ -92,7 +92,6 @@ const products = [
 ];
 
 export const getData = (categoryId) => new Promise ((resolve, reject) =>{
-    let condition = true;
     const productsFound = products.filter((product) => product.category === categoryId);
     setTimeout(()=>{
         categoryId ? resolve(productsFound) : resolve(products);

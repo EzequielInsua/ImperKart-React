@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
         }
     }
 
-    useEffect(() => {
+    useEffect((id) => {
         getProd(id);
     },[id]);
 
