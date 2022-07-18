@@ -1,40 +1,59 @@
 @import '../../sass/_variables.scss';
 
 .card{
-    width: 90%;
-    background-color: $TextColor;
+    width: 86%;
+    backdrop-filter: blur(0.2rem);
+    background-color: rgba(255, 255, 255, 0.099);
     border-radius: 20px;
-    border: $border;
-    margin: 5%;
+    margin: auto;
+    padding: auto;
 }
 .cardTitle{
     width: 100%;
     text-transform: uppercase;
-    font-family: roboto;
-    font-size: 1.5rem;
-    border-bottom: $border;
-    padding: 20px;
+    font-family: map-get($map: $font, $key: fontTitle);
+    font-size: 3rem;
+    color: #000000;
 }
 .cardContainer{
     display: flex;
     align-items: stretch;
     justify-content: space-around;
     width: 100%;
-    border: .05rem solid #fffbed62;
 }
 .imageContainer{
-    width: 50%;
+    width: 35%;
     text-align: center;
 }
 .image{
-    max-width: 400px;
+    max-width: 300px;
+    align-items: center;
     
 }
 .detailContainer{
-    width: 50%;
+    width: 65%;
     height: 100%;
     border-left: $border;
     padding: 2%;
+    color: $TextColor;
+    h3{
+        font-family: map-get($map: $font, $key: fontGeneral);
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+.price{
+    h5,span{
+        font-family: map-get($map: $font, $key: fontGeneral);
+        font-size: 2rem;
+        color: #000;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
 }
 .buy {
     position: absolute;

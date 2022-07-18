@@ -19,19 +19,19 @@ const ItemDetail = ({product}) => {
     }
 
     return (
-        <div class= {styles.card} >
-            <h1 class={styles.cardTitle}>{name}</h1>
-            <div class={styles.cardContainer}>
-                <div class={styles.imageContainer}>
-                    <img src={ProductsImage(`./${image}`)} className={styles.image} alt={name}/>
+        <div className = {styles.card} >
+            <h1 className = {styles.cardTitle}>{name}</h1>
+            <div className = {styles.cardContainer}>
+                <div className = {styles.imageContainer}>
+                    <img src = {ProductsImage(`./${image}`)} className = {styles.image} alt = {name}/>
                 </div>
-                <div class={styles.detailContainer}>
+                <div className={styles.detailContainer}>
                     <div>
                         <h3>{abstract}</h3>
-                        <h3>Descripción</h3>
-                        <p class={styles.cardText}>{description}</p>
+                        <h4>Descripción</h4>
+                        <p className={styles.cardText}>{description}</p>
                     </div>
-                    <div class="price">
+                    <div className={styles.price}>
                         <h5>Precio: <span>${price}</span> </h5>
                     </div>
                     {quantity !== 0 ? <CheckOut/> : <ItemCount maxStock={13} minStock={1} onAdd={onAdd}/>}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { getProduct } from "../../mocks/fakeProducts"
+import { getProduct } from "../../mocks/fakeProducts";
+import './ItemDetailContainer.scss';
 
 
 const ItemDetailContainer = () => {
@@ -29,7 +30,7 @@ const ItemDetailContainer = () => {
     },[id]);
 
     return (
-        <div>
+        <div className= 'intemContainer'>
             {loading ? <p>Cargando...</p> : <ItemDetail product={product}/>}
         </div>
     )

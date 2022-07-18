@@ -1,26 +1,34 @@
 @import '../../sass/_variables.scss';
 
 .cart{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: $bg;
-    padding: 20px;
+    width: 86%;
+    margin: auto;
+    padding: auto;
+    border-radius: 20px;
+    backdrop-filter: blur(0.2rem);
+    background-color: rgba(255, 255, 255, 0.099);
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     font-family: guitaluevo;
     color: $mainColor;
+    border: .1rem solid #838383;
 }
-.ul{
+#ul{
     list-style-type: none;
-    width: 100%;
+    padding: 0;
+    margin: 0;
+    h4{
+        font-family: map-get($map: $font, $key: fontGeneral);
+        font-size: 2rem;
+        color: #000;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
 }
-.cart-item{
+.cartItem{
     font-family: monserrat_bold;
     color: $TextColor;
-    box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.555);
+    border: .1rem solid #838383;
     h4{
         padding: 5px;
     }
@@ -31,10 +39,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    font-size: 1.5rem;
     width: 100%;
     height: 100%;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
 .buy {
     font-size: 1rem;
@@ -74,7 +82,6 @@
     width: 100%;
     height: 100%;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     font-family: monserrat_bold;
     color: $TextColor;
     font-size: 25px;
