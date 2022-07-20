@@ -4,7 +4,6 @@ import ItemList from '../ItemList/ItemList'
 import { getData } from '../../mocks/fakeProducts'
 import { useParams } from "react-router-dom";
 
-
 const ItemListContainer = ({greeting}) => {
     const [productList, setProductList] = useState([]);
     const [loading, setLoading]=useState(true);

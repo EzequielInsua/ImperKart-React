@@ -13,8 +13,9 @@ const Cart = () => {
 
     if (cart.length === 0) {
         return (
-            <div className="cart">
+            <div className="emptyCart">
                 <h1>Carrito Vacio</h1>
+                <Link to={'/'} name="buy" className ='buy'>¡Es hora de llenarlo!</Link>
             </div>
         )
     }
