@@ -1,37 +1,38 @@
 import "./ItemListContainer.scss";
 import React, { useEffect, useState } from 'react'
+import { CircularProgress } from '@mui/material';
 import ItemList from '../ItemList/ItemList'
-import { getData } from '../../mocks/fakeProducts'
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { db } from '../../firebase/firebase';
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 const ItemListContainer = ({greeting}) => {
     const [productList, setProductList] = useState([]);
     const [loading, setLoading]=useState(true);
-
     const { categoryId } = useParams();
     
-    const getProducts = async () => {
-        try{
-        const respuesta = await getData(categoryId);
-            setProductList(respuesta)
-        }
-        catch(error){
-            console.log(error)
-        }
-        finally{
-            setLoading(false)
-        }
-    }
-
     useEffect((categoryId)=>{
-        getProducts(categoryId)
+        const productsQuery = categoryId ? query(db,'products',where('category', '==', categoryId)) 
+                                        : collection(db,'products'); 
+
+        getDocs(productsQuery)
+        .then(result => {
+            const list = result.docs.map(product => {
+                return{
+                    id: product.id,
+                    ...product.data()
+                }
+            })
+            setProductList(list);
+        })
+        .catch(error =>console.log(error))
+        .finally(() => setLoading(false))
     },[categoryId])
 
     return (
     <div className = "landing">
         <h1>{greeting}</h1>
-        {loading ? <p>Cargando...</p> : <ItemList productList={productList}/> }
-        
+        {loading ? <CircularProgress color = "warning"/> : <ItemList productList={productList}/> }
     </div>
     )
 }

@@ -1,37 +1,35 @@
 import React, { useEffect, useState } from 'react';
+import { CircularProgress } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { getProduct } from "../../mocks/fakeProducts";
 import './ItemDetailContainer.scss';
-
+import {db} from '../../firebase/firebase';
+import { getDoc, doc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({});
+
+    const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true); 
 
     const {id} = useParams();
 
-    const getProd = async () => {
-        
-        try{
-            const respuesta = await getProduct(id);
-                setProduct(respuesta)
-        }
-        catch(error){
-            console.log(error)
-        }
-        finally{
-            setLoading(false)
-        }
-    }
+    useEffect(() => {
+        const productCollection = collection(db,'products');
+        const refDoc = doc(productCollection, id);
 
-    useEffect((id) => {
-        getProd(id);
+        getDoc(refDoc).then(result => {
+            setProduct({
+                id: result.id,
+                ...result.data()
+            })
+        })
+        .catch(error =>console.log(error))
+        .finally(() => setLoading(false))
     },[id]);
 
     return (
         <div className= 'intemContainer'>
-            {loading ? <p>Cargando...</p> : <ItemDetail product={product}/>}
+            {loading ? <CircularProgress color = "warning"/> : <ItemDetail product={product}/>}
         </div>
     )
 }
