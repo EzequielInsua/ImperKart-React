@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        const productCollection = collection(db,'products');
+        const productCollection = collection(db,'foodList');
         const refDoc = doc(productCollection, id);
 
         getDoc(refDoc).then(result => {
