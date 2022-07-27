@@ -30,6 +30,7 @@ const CartProvider = ({ children }) => {
             item.id === id ? {...item, quantity: item.quantity + quantity} : item
             )
         setCart(newCart);
+        console.log(newCart);
     }
     
     const removeFromCart = (id) => {
@@ -65,8 +66,32 @@ const CartProvider = ({ children }) => {
         return cart.reduce((total, item) => total + (item.price * item.quantity), 0)
     }
         
+    const emptyCart = () => {
+        swal({
+            title: "¿Estás seguro?",
+            text: "¡Una vez vaciado, deberas llenarlo de nuevo!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+        if (willDelete) {
+            swal(`Poof! ¡Tu Carrito ha sido vaciado!`, {
+            icon: "success",
+            }
+        );
+            setCart([]);
+        } else {
+            swal(`¡Tu Carrito está a salvo!`);
+        }
+        });
+    }
+    const purchase = () => {
+        setCart([]);
+    }
+
     return (
-        <Provider value={{ cart, quantityTotal, addToCart, removeFromCart, total }}>
+        <Provider value={{ cart, quantityTotal, addToCart, removeFromCart, total, emptyCart, purchase }}>
             {children}
         </Provider>
     );

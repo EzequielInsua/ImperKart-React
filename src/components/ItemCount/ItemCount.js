@@ -18,13 +18,13 @@ const ItemCount = ({maxStock, minStock, onAdd}) => {
     }
         
     return (
-        <div class="item-count">
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="buttom" class="btn btn-outline-dark" onClick={onDecrement}>-</button>
-                <span class="count">{count}</span>
-                <button type="buttom" class="btn btn-outline-dark" onClick={onIncrement}>+</button>
+        <div className="item-count">
+            <div className="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="buttom" className="btn btn-outline-dark" onClick={onDecrement}>-</button>
+                <span className="count">{count}</span>
+                <button type="buttom" className="btn btn-outline-dark" onClick={onIncrement}>+</button>
             </div>
-            <buttom name="buy" class='buy' onClick={ClickAddToCart}>Agregar al Carrito</buttom>
+            <buttom name="buy" className='buy' onClick={ClickAddToCart}>Agregar al Carrito</buttom>
         </div>
     );
 }

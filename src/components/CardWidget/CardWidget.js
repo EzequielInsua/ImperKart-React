@@ -9,7 +9,7 @@ const CardWidget = () => {
 
     return (
         <Link to = './Cart' className="btn btn-light cw_display">
-            <div type="button" class="" id="card">
+            <div type="button" id="card">
                 <ShoppingCartIcon fontSize="large" />
             </div>
             { quantityTotal > 0 && <span id="cartQuantity">{quantityTotal}</span> }

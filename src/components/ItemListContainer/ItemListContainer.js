@@ -12,7 +12,6 @@ const ItemListContainer = ({greeting}) => {
     const { categoryId } = useParams();
     
     useEffect(()=>{
-        console.log(categoryId);
         const productsQuery = categoryId 
             ? query(collection(db,'foodList'), where('category', '==', categoryId))
             : collection(db,'foodList'); 

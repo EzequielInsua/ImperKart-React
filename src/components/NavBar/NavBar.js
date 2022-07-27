@@ -29,19 +29,19 @@ const menuItems = [
 const NavBar = () =>{
     return (
         <>
-        <nav class='navbar navbar-expand-md navbar-dark'>
-            <div class='container-fluid'>
-                <Link to = '/' key = '1' class='navbarLogo navbar-brand'>
-                    <img src={logo} class='navbarLogo_img' alt='Logo ImperKart' />
+        <nav className='navbar navbar-expand-md navbar-dark'>
+            <div className='container-fluid'>
+                <Link to = '/' key = '1' className='navbarLogo navbar-brand'>
+                    <img src={logo} className='navbarLogo_img' alt='Logo ImperKart' />
                 </Link>
-                <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-                    <span class='navbar-toggler-icon'></span>
+                <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+                    <span className='navbar-toggler-icon'></span>
                 </button>
-                <div class='nav collapse navbar-collapse justify-content-end navi' id='navbarSupportedContent'>
-                    <ul class='navbar-nav navi'>
+                <div className='nav collapse navbar-collapse justify-content-end navi' id='navbarSupportedContent'>
+                    <ul className='navbar-nav navi'>
                         {menuItems.map((item) => (
-                            <li class='nav-item'>
-                                <Link to={item.path} class='nav-link' key={item.id}>{item.name}</Link>
+                            <li className='nav-item'>
+                                <Link to={item.path} className='nav-link' key={item.id}>{item.name}</Link>
                             </li>
                         ))}
                     </ul>

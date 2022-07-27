@@ -8,12 +8,12 @@ const Item = ({product}) => {
     const {image, name, abstract, price, id}= product
 
     return (
-        <div class="card">
-            <div class="card2">
+        <div className="card">
+            <div className="card2">
                 <img src={productsImage(`./${image}`)} className="intemImg" alt={name}/>
-                <div class="cardDescription">
+                <div className="cardDescription">
                     <h2>{name}</h2>
-                    <div class="price">
+                    <div className="price">
                         <h3>Precio:</h3>
                         <span>${price}</span>
                     </div>

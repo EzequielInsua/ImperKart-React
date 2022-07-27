@@ -3,13 +3,12 @@ import React from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import {Link} from "react-router-dom"
-import swal from 'sweetalert'
 
 const productsImage = require.context('../../assets', true);
 
 
 const Cart = () => {
-    const { cart, removeFromCart, total } = useContext(CartContext)
+    const { cart, removeFromCart, total, emptyCart, purchase } = useContext(CartContext)
 
     if (cart.length === 0) {
         return (
@@ -43,7 +42,8 @@ const Cart = () => {
             </div>
             <div className = "item-count">
                 <Link to={'/'} name="buy" className ='buy'>Seguir Comprando</Link>
-                <buttom name="buy" class='buy' onClick={() => swal(`¡Tu compra fue realizada correctamente!`)}>Finalizar Compra</buttom>
+                <button className="buy" onClick={() => emptyCart()} >Vaciar Carrito</button>
+                <Link to={'/form'} name="buy" className='buy'>Finalizar Compra</Link>
             </div>
         </div>
     )
