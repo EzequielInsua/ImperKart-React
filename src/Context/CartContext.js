@@ -86,6 +86,7 @@ const CartProvider = ({ children }) => {
         }
         });
     }
+    
     const purchase = () => {
         setCart([]);
     }

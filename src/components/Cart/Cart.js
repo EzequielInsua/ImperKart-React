@@ -3,6 +3,7 @@ import React from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import {Link} from "react-router-dom"
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const productsImage = require.context('../../assets', true);
 
@@ -22,30 +23,40 @@ const Cart = () => {
     return (
         <div className="cart">
             <h1>Carrito</h1>
-            <ul id = "ul">
-                {cart.map(item => (
-                    <li key={item.id}>
-                        <div className="cartItem">
-                            <h4>{item.abstract}</h4>
-                            <div className="item-details">
-                                <img src={productsImage(`./${item.image}`)} width="100px"  alt={item.name} />
-                                <p>Precio: ${item.price}</p>
-                                <p>Cantidad: {item.quantity}</p>
-                                <buttom className ='buy' onClick={() => removeFromCart(item.id)}>Remover</buttom>
-                            </div>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <table class="table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio Unitario</th>
+                        <th scope="col">Precio Total</th>
+                        <th scope="col">Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {cart.map(item => (
+                        <tr className='tr' key={item.id}>
+                            <td lassName='td'><img src={productsImage(`./${item.image}`)} width="100px" alt={item.name} /></td>
+                            <td lassName='td'>{item.name}</td>
+                            <td lassName='td'>{item.quantity}</td>
+                            <td lassName='td'>${item.price}</td>
+                            <td lassName='td'>${item.quantity * item.price}</td>
+                            <td lassName='td'><button className ='deleted' onClick={() => removeFromCart(item.id)}><DeleteIcon /></button></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
             <div className = "cart-total">
-                <p>Total: ${total()}</p>
+                <div className='cTotal'>Total: ${total()}</div>
             </div>
             <div className = "item-count">
                 <Link to={'/'} name="buy" className ='buy'>Seguir Comprando</Link>
-                <button className="buy" onClick={() => emptyCart()} >Vaciar Carrito</button>
+                <button className="deleted" onClick={() => emptyCart()} >Vaciar Carrito</button>
                 <Link to={'/form'} name="buy" className='buy'>Finalizar Compra</Link>
             </div>
         </div>
+
     )
 }
 
