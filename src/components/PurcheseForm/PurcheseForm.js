@@ -1,26 +1,36 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./PurcheseForm.scss";
 import { db } from '../../firebase/firebase';
 import { collection, addDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../Context/CartContext'
+import Purchese from "../Purchese/Purchese";
 import userEvent from "@testing-library/user-event";
 import swal from 'sweetalert';
 import { async } from "@firebase/util";
 
+
 const PurcheseForm = () => {
-    const { cart, total, emptyCart, purchase } = useContext(CartContext);
+    const { cart, purchase } = useContext(CartContext);
 
     let totalPay = 0;
     cart.map(item => totalPay += item.price * item.quantity);
+
     const navigate = useNavigate();
+
     const saleCollection = collection(db,'sales');
     const [sale, setSale] = useState({
-        name: '',
-        lastName: '',
-        mail: '',
-        phone: '',
-    });
+                                        name: '',
+                                        lastName: '',
+                                        mail: '',
+                                        phone: '',
+                                    });
+
+    const [denyEnter, setDenyEnter] = useState(true);
+
+    useEffect(() => {
+        setDenyEnter( Object.values(sale).some(item => item === '') );
+    }, [sale]);
 
     const handleChange = ({id, value}) => {
         setSale({...sale,
@@ -30,27 +40,24 @@ const PurcheseForm = () => {
 
     const addOrder = async (e) => {
         e.preventDefault();
+        let newOrder
         const order = {
             'buyer': sale,
             'items': cart,
-            'date': serverTimestamp()
+            'date': serverTimestamp(),
+            'state': 'generada'
         }
-        try {
-            const newOrder = await addDoc( saleCollection, order );
-            discountStock();
-            await swal({
-                icon: 'success',
-                title: '¡Orden creada exitosamente!',
-                text: `El numero de su orden es: ${newOrder.id}`,
-            })
-        } catch (error) {
-            await swal({
-                icon: 'error',
-                title: 'Lo sentimos, ha ocurrido un error. Por favor, intente nuevamente mas tarde.',
-                text: `Error: ${error}`,
-            })
+        try{
+            newOrder = await addDoc( saleCollection, order);
+            // discountStock();
+            navigate('/purchese', {state: JSON.stringify(newOrder._key.path.segments[1])});
+        }
+        catch(error){
+            console.log(error);
+            // swal("¡ROMPISTE TODO!")
+
         }finally{
-            navigate('/');
+            console.log('newOrder', newOrder);
             purchase();
         }
     }
@@ -100,7 +107,7 @@ const PurcheseForm = () => {
                     <label for="P">Paypal</label>
                 </div>
             </div>
-            <button  type="submit" id='enter'>Enviar</button>
+            <button type="submit" id='enter' disabled={denyEnter}>Enviar</button>
         </form>   
 );
 }

@@ -82,7 +82,7 @@
     }
 }
 .intemImg{
-    object-fit: scale-down;
+    object-fit: contain;
     height: 12rem; 
     max-width: 300px;
 }

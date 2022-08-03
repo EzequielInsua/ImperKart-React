@@ -1,4 +1,5 @@
 
+import "./ItemList.scss"
 import React from 'react'
 import Item from '../Item/Item'
 
