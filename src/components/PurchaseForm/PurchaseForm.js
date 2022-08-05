@@ -1,20 +1,17 @@
 import React, {useContext, useEffect, useState} from "react";
-import "./PurcheseForm.scss";
+import "./PurchaseForm.scss";
 import { db } from '../../firebase/firebase';
 import { collection, addDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from '../../Context/CartContext'
-import Purchese from "../Purchese/Purchese";
-import userEvent from "@testing-library/user-event";
+import { CartContext } from '../../Context/CartContext';
 import swal from 'sweetalert';
-import { async } from "@firebase/util";
 
 
-const PurcheseForm = () => {
+const PurchaseForm = () => {
     const { cart, purchase } = useContext(CartContext);
 
     let totalPay = 0;
-    cart.map(item => totalPay += item.price * item.quantity);
+    cart.map(item => totalPay += item.price*item.quantity);
 
     const navigate = useNavigate();
 
@@ -49,22 +46,24 @@ const PurcheseForm = () => {
         }
         try{
             newOrder = await addDoc( saleCollection, order);
-            // discountStock();
-            navigate('/purchese', {state: JSON.stringify(newOrder._key.path.segments[1])});
+            discountStock();
+            navigate('/purchase', {state: JSON.stringify(newOrder._key.path.segments[1])});
         }
         catch(error){
             console.log(error);
-            // swal("¡ROMPISTE TODO!")
-
+            swal({
+                icon: 'error',
+                title: 'Lo sentimos, ha ocurrido un error. Por favor, intente nuevamente mas tarde.',
+                text: `Error: ${error}`
+            })
         }finally{
-            console.log('newOrder', newOrder);
             purchase();
         }
     }
-
     const discountStock = () => {
         cart.forEach( prod => {
-            const product = doc( db, 'foodList', prod.id )
+            const product = doc( db,'foodList', `${prod.id}`);
+            console.log('product', product);
             try {
                 updateDoc( product, { 'stock': prod.stock - prod.quantity } )
             }catch (error){
@@ -112,4 +111,6 @@ const PurcheseForm = () => {
 );
 }
 
-export default PurcheseForm;
+export default PurchaseForm;
+
+
