@@ -4,8 +4,6 @@ import ItemCount from "../ItemCount/ItemCount";
 import React, {useState, useContext} from 'react';
 import { CartContext } from '../../Context/CartContext';
 
-const ProductsImage = require.context('../../assets', true);
-
 const ItemDetail = ({product}) => {
 
     const {image, name,abstract, description, price}= product
@@ -23,7 +21,7 @@ const ItemDetail = ({product}) => {
             <h1 className = {styles.cardTitle}>{name}</h1>
             <div className = {styles.cardContainer}>
                 <div className = {styles.imageContainer}>
-                    <img src = {ProductsImage(`./${image}`)} className = {styles.image} alt = {name}/>
+                    <img src = {`${image}`} className = {styles.image} alt = {name}/>
                 </div>
                 <div className={styles.detailContainer}>
                     <div>

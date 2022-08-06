@@ -13,12 +13,10 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .comtainer-fluid{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
 
     .navbarLogo{
         margin-left: 7%;
@@ -50,10 +48,6 @@
     }
 }
 
-
-
-
-
 .dropdown-menu, .dropdown-item {
     background-color: rgb(22, 22, 22);
     color: #fffbed;
@@ -61,4 +55,30 @@
 .badge-info{
     color: black;
     background-color: rgb(255, 0, 47);
+}
+
+@media screen and (max-width:768px){
+    .navbar-toggler{
+        display: block;
+        margin-right: 7%;
+    }
+    .container-fluid{
+        padding: 0;
+        margin: 0;
+    }
+    #navbarSupportedContent{
+        background-color: $bg;
+        border-radius: 0px;
+        margin: none !important;
+        // padding: none !important;
+        width: 100%;
+        height: 500px;
+    }
+    .navbar-nav{
+        width: 100%;
+        border-radius: 0px !important;
+        background-color: transparent;
+        border: none;
+    }
+    
 }

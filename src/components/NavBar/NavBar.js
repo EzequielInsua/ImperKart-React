@@ -5,22 +5,22 @@ import CardWidget from '../CardWidget/CardWidget';
 import {Link} from 'react-router-dom';
 const menuItems = [
     {
-        id: 1,
+        id: '1',
         path: '/',
         name: 'Destacados'
     },
     {
-        id: 2,
+        id: '2',
         path: 'category/plasticos',
         name: 'Plasticos'
     },
     {
-        id: 3,
+        id: '3',
         path: 'category/llantas',
         name: 'Llantas'
     },
     {
-        id: 4,
+        id: '4',
         path: 'category/chasis',
         name: 'Chasis'
     }
@@ -40,13 +40,13 @@ const NavBar = () =>{
                 <div className='nav collapse navbar-collapse justify-content-end navi' id='navbarSupportedContent'>
                     <ul className='navbar-nav navi'>
                         {menuItems.map((item) => (
-                            <li className='nav-item'>
-                                <Link to={item.path} className='nav-link' key={item.id}>{item.name}</Link>
+                            <li className='nav-item' key={item.id}>
+                                <Link to={item.path} className='nav-link'>{item.name}</Link>
                             </li>
                         ))}
                     </ul>
+                    <CardWidget/>         
                 </div>
-                <CardWidget/>          
             </div>
         </nav>
         </>

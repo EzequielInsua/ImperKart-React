@@ -10,7 +10,7 @@ const Item = ({product}) => {
     return (
         <div className="card">
             <div className="card2">
-                <img src={productsImage(`./${image}`)} className="intemImg" alt={name}/>
+                <img src={`${image}`} className="intemImg" alt={name}/>
                 <div className="cardDescription">
                     <h2>{name}</h2>
                     <div className="price">

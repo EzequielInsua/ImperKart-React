@@ -19,14 +19,19 @@ const PurchaseForm = () => {
     const [sale, setSale] = useState({
                                         name: '',
                                         lastName: '',
-                                        mail: '',
                                         phone: '',
+                                        mail: '',
+                                        mailRepeat: '',
                                     });
 
     const [denyEnter, setDenyEnter] = useState(true);
 
     useEffect(() => {
-        setDenyEnter( Object.values(sale).some(item => item === '') );
+        if (sale.name !== '' && sale.lastName !== '' && sale.phone !== '' && sale.mail !== '' && sale.mailRepeat !== '' && sale.mail === sale.mailRepeat) {
+            setDenyEnter(false);
+        } else {
+            setDenyEnter(true);
+        }
     }, [sale]);
 
     const handleChange = ({id, value}) => {
@@ -84,27 +89,16 @@ const PurchaseForm = () => {
                 <label for="lastName">Apellido</label>
             </div>
             <div className="imputBox">
-                <input type="email"  required="required" id="mail"/>
-                <label for="mail">Correo Electronico</label>
-            </div>
-            <div className="imputBox">
                 <input type="tel"  required="required" id="phone"/>
                 <label for="phone">Telefono</label>
             </div>
-            <div className="formPayout">
-                <h3 className="fpTitle"> Seleccione Forma de Pago</h3>
-                <div className="paySelector">
-                    <input value="1" type="radio" name="wayToPay" id="TC"/>
-                    <label for="TC">Tarjeta de Credito</label>
-                </div>
-                <div className="paySelector">
-                    <input value="2" type="radio" name="wayToPay" id="TD"/>
-                    <label for="TD">Tarjeta de Debito</label>
-                </div>
-                <div className="paySelector">
-                    <input value="2" type="radio" name="wayToPay" id="P"/>
-                    <label for="P">Paypal</label>
-                </div>
+            <div className="imputBox">
+                <input type="email"  required="required" id="mail"/>
+                <label for="mail">Email</label>
+            </div>
+            <div className="imputBox">
+                <input type="email"  required="required" id="mailRepeat"/>
+                <label for="mailRepeat">Repita su Email</label>
             </div>
             <button type="submit" id='enter' disabled={denyEnter}>Enviar</button>
         </form>   

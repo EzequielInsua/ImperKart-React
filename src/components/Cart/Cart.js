@@ -5,8 +5,6 @@ import { CartContext } from '../../Context/CartContext'
 import {Link} from "react-router-dom"
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const productsImage = require.context('../../assets', true);
-
 
 const Cart = () => {
     const { cart, removeFromCart, total, emptyCart, purchase } = useContext(CartContext)
@@ -23,7 +21,7 @@ const Cart = () => {
     return (
         <div className="cart">
             <h1>Carrito</h1>
-            <table class="table-light">
+            <table className="table-light">
                 <thead>
                     <tr>
                         <th scope="col">Imagen</th>
@@ -37,12 +35,12 @@ const Cart = () => {
                 <tbody>
                     {cart.map(item => (
                         <tr className='tr' key={item.id}>
-                            <td lassName='td'><img src={productsImage(`./${item.image}`)} width="100px" alt={item.name} /></td>
-                            <td lassName='td'>{item.name}</td>
-                            <td lassName='td'>{item.quantity}</td>
-                            <td lassName='td'>${item.price}</td>
-                            <td lassName='td'>${item.quantity * item.price}</td>
-                            <td lassName='td'><button className ='deleted' onClick={() => removeFromCart(item.id)}><DeleteIcon /></button></td>
+                            <td className='td'><img src={`${item.image}`} width="100px" alt={item.name} /></td>
+                            <td className='td'>{item.name}</td>
+                            <td className='td'>{item.quantity}</td>
+                            <td className='td'>${item.price}</td>
+                            <td className='td'>${item.quantity * item.price}</td>
+                            <td className='td'><button className ='deleted' onClick={() => removeFromCart(item.id)}><DeleteIcon /></button></td>
                         </tr>
                     ))}
                 </tbody>

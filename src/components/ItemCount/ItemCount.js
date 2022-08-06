@@ -24,7 +24,7 @@ const ItemCount = ({maxStock, minStock, onAdd}) => {
                 <span className="count">{count}</span>
                 <button type="buttom" className="btn btn-outline-dark" onClick={onIncrement}>+</button>
             </div>
-            <buttom name="buy" className='buy' onClick={ClickAddToCart}>Agregar al Carrito</buttom>
+            <button name="buy" className='buy' onClick={ClickAddToCart}>Agregar al Carrito</button>
         </div>
     );
 }
