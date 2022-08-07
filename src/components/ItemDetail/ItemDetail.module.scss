@@ -12,6 +12,8 @@
     width: 100%;
     text-transform: uppercase;
     font-family: map-get($map: $font, $key: fontTitle);
+    background-color: $bgHeader;
+    border-radius: 20px 20px 0px 0px;
     padding: 1rem;
 }
 .cardContainer{
@@ -23,6 +25,8 @@
 .imageContainer{
     width: 35%;
     text-align: center;
+    margin: auto;
+    padding: auto;
 }
 .image{
     max-width: 300px;

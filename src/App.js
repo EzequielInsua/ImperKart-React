@@ -7,6 +7,7 @@ import PurchaseForm from "./components/PurchaseForm/PurchaseForm";
 import Purchase from "./components/Purchase/Purchase";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartProvider from "./Context/CartContext";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/form" element={<PurchaseForm/>} />
           <Route path="/purchase" element={<Purchase/>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartProvider>
 
