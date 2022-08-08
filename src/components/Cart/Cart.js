@@ -24,22 +24,22 @@ const Cart = () => {
             <table className="table-light">
                 <thead>
                     <tr>
-                        <th scope="col">Imagen</th>
+                        <th scope="col" className = 'hide'>Imagen</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio Unitario</th>
-                        <th scope="col">Precio Total</th>
+                        <th scope="col" className = 'hide'>Precio Total</th>
                         <th scope="col">Remover</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cart.map(item => (
                         <tr className='tr' key={item.id}>
-                            <td className='td'><img src={`${item.image}`} width="100px" alt={item.name} /></td>
+                            <td className='td hide'><img src={`${item.image}`} className = 'imgTable' alt={item.name} /></td>
                             <td className='td'>{item.name}</td>
                             <td className='td'>{item.quantity}</td>
                             <td className='td'>${item.price}</td>
-                            <td className='td'>${item.quantity * item.price}</td>
+                            <td className='td hide'>${item.quantity * item.price}</td>
                             <td className='td'><button className ='deleted' onClick={() => removeFromCart(item.id)}><DeleteIcon /></button></td>
                         </tr>
                     ))}

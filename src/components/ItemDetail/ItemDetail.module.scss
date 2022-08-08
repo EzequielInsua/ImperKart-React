@@ -80,3 +80,24 @@
         color: $mainColor;
     }
 }
+
+@media screen and (max-width:820px){
+    .card{
+        width: 90%;
+    }
+    .cardContainer{
+        flex-direction: column;
+    }
+    .imageContainer{
+        width: 100%;
+    }
+    .detailContainer{
+        width: 100%;
+        border-left: none;
+        border-top: $border;
+    }
+    .buy{
+        line-height: 1rem;
+        font-size: 0.7rem !important;
+    }
+}
